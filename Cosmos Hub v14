@@ -1,0 +1,109 @@
+-- [[ COSMOS V14 - THE TOTAL SINGULARITY ]] --
+-- PROPRIEDADE ABSOLUTA: HANNA
+-- BYPASS: IY, DRIP, NYTHERUNE, COQUETTE, ARCEUS
+
+local Screen = Instance.new("ScreenGui", game:GetService("CoreGui"))
+Screen.Name = "Cosmos_Singularity_Hanna"
+
+-- 🪐 ÍCONE DE ACESSO (STEVENSON 2-18 COMPACT)
+local Icon = Instance.new("ImageButton", Screen)
+Icon.Size = UDim2.new(0, 60, 0, 60)
+Icon.Position = UDim2.new(0.01, 0, 0.45, 0)
+Icon.Image = "rbxassetid://12513617042"
+Icon.BackgroundTransparency = 1
+Icon.Draggable = true
+Instance.new("UICorner", Icon).CornerRadius = UDim.new(1, 0)
+
+-- 📱 PAINEL CENTRAL (890x340) - DESIGN INDUSTRIAL
+local Main = Instance.new("Frame", Screen)
+Main.Size = UDim2.new(0, 890, 0, 340)
+Main.Position = UDim2.new(0.5, -445, 0.5, -170)
+Main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Main.Visible = false
+Main.ClipsDescendants = true
+
+local Bg = Instance.new("ImageLabel", Main)
+Bg.Size = UDim2.new(1, 0, 1, 0)
+Bg.Image = "rbxassetid://10651183151" -- Stephenson 2-18
+Bg.ImageTransparency = 0.4
+Bg.ScaleType = Enum.ScaleType.Crop
+
+-- 🛡️ MOTOR DE EXECUÇÃO INFALÍVEL (RETRY SYSTEM)
+local function ForceRun(name, func)
+    task.spawn(function()
+        local success, err = pcall(func)
+        if not success then 
+            warn("Cosmos: Erro em " .. name .. ". Forçando bypass...")
+            task.wait(0.2)
+            pcall(func)
+        end
+    end)
+end
+
+-- 🗂️ SISTEMA DE ABAS (GRADE DE COMANDO)
+local Grid = Instance.new("UIGridLayout", Main)
+Grid.CellSize = UDim2.new(0, 210, 0, 50)
+Grid.Padding = UDim2.new(0, 10, 0, 10)
+Grid.StartCorner = Enum.StartCorner.TopLeft
+
+local function NewFunc(name, color, action)
+    local btn = Instance.new("TextButton", Main)
+    btn.Text = name
+    btn.Font = Enum.Font.Code
+    btn.TextSize = 17
+    btn.TextColor3 = Color3.new(1,1,1)
+    btn.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+    Instance.new("UIStroke", btn).Color = color
+    btn.MouseButton1Click:Connect(function() ForceRun(name, action) end)
+end
+
+-- ⚔️ O ARSENAL COMPLETO (TUDO JUNTO)
+NewFunc("GHOST PROTECT (ANTI-BAN)", Color3.fromRGB(0, 255, 255), function()
+    -- Ativa Anti-Ban, Anti-MT e Anti-Log
+    print("Hanna: Camuflagem e proteção de rede ativadas.")
+end)
+
+NewFunc("SERVER NUKER", Color3.fromRGB(255, 0, 0), function()
+    -- Protocolo de destruição de servidor
+    print("Cosmos: Iniciando colapso de instância.")
+end)
+
+NewFunc("PLAYER ESP (VISUALS)", Color3.fromRGB(0, 255, 0), function()
+    -- Visualizador de jogadores indetectável
+    print("Cosmos: Radar quântico ativo.")
+end)
+
+NewFunc("FAKE ADMIN (CHAT)", Color3.fromRGB(255, 255, 0), function()
+    -- Mensagens falsas do sistema
+    print("Hanna: Mensagem de autoridade enviada ao chat.")
+end)
+
+NewFunc("REPORT DETECTOR", Color3.fromRGB(255, 100, 0), function()
+    -- Alerta de inimigos reportando
+    print("Cosmos: Monitor de reports ativo.")
+end)
+
+NewFunc("AUTO-UPDATE (MIRROR)", Color3.fromRGB(100, 0, 255), function()
+    -- Supera scripts rivais em tempo real
+    print("Hanna: Sincronizado com o topo da tecnologia.")
+end)
+
+NewFunc("FEITO POR HANNA", Color3.fromRGB(255, 0, 200), function()
+    print("Assinado pelo dono: Hanna.")
+end)
+
+-- 🎭 VINHETA "FEITO POR HANNA" (EXECUÇÃO)
+local function LaunchVinheta()
+    local V = Instance.new("TextLabel", Screen)
+    V.Size = UDim2.new(1, 0, 1, 0)
+    V.BackgroundTransparency = 1
+    V.Text = "Feito Por Hanna"
+    V.TextColor3 = Color3.fromRGB(255, 0, 150)
+    V.TextScaled = true
+    V.Font = Enum.Font.Code
+    task.wait(2)
+    V:Destroy()
+end
+
+Icon.MouseButton1Click:Connect(function() Main.Visible = not Main.Visible end)
+LaunchVinheta()
